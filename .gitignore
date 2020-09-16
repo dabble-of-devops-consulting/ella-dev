@@ -4,3 +4,4 @@ rsync-to-aws.sh
 demo/data
 dev/data
 .mypy_cache
+.idea
