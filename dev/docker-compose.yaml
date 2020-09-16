@@ -1,0 +1,59 @@
+version: "3.8"
+
+services:
+  postgresql:
+    image: bitnami/postgresql:12
+    networks:
+      - app-tier
+    environment:
+      DB_URL: "postgresql://ella:password123@postgresql/ella"
+      POSTGRESQL_USERNAME: "ella"
+      POSTGRESQL_DATABASE: "ella"
+      POSTGRESQL_PASSWORD: "password123"
+
+  ella:
+    image: dabbleofdevops/ella:1.11.1
+    depends_on:
+      - postgresql
+    environment:
+      ELLA_CONFIG: "/ella/example_config.yml"
+      ANNOTATION_SERVICE_URL: "http://ella-anno:6000"
+      OFFLINE_MODE: "false"
+      DEV_IGV_FASTA: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/1kg_v37/human_g1k_v37_decoy.fasta"
+      DEV_IGV_CYTOBAND: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/b37/b37_cytoband.txt"
+      PTVS_PORT: 5678
+      IGV_DATA: "/ella/src/vardb/testdata/igv-data/"
+#      ATTACHMENT_STORAGE : "/ella/src/vardb/testdata/attachments/"
+      ATTACHMENT_STORAGE : "/data/attachments"
+      #      ANALYSES_PATH: "/ella/src/vardb/testdata/analyses/default/"
+      ANALYSES_PATH: "/data/analyses/imported"
+      ANALYSES_INCOMING: "/data/analyses/incoming"
+      PRODUCTION: "false"
+      # TODO Figure out how to get this working with the external postgresql
+      #      DB_URL: "postgresql://ella:password123@postgresql/ella"
+      DB_URL: "postgresql:///postgres"
+    ports:
+      - 5000:5000
+    volumes:
+      - ./data:/data
+      - ./logs:/logs
+    networks:
+      - app-tier
+    command: |
+      supervisord -c /ella/ops/dev/supervisor.cfg
+
+  ella-anno:
+    image: dabbleofdevops/ella-anno:v2.0.3
+    environment:
+      DEBUG: "true"
+      API_PORT: 6000
+    depends_on:
+      - postgresql
+      - ella
+    networks:
+      - app-tier
+
+
+networks:
+  app-tier:
+    driver: bridge
