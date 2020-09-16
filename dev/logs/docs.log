@@ -1,0 +1,14 @@
+yarn run v1.22.5
+$ cd docs && vuepress build -d ../src/webui/build/docs/
+
+ WAIT  Extracting site metadata...
+[10:27:52 AM] Compiling Client
+[10:27:52 AM] Compiling Server
+(node:70) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
+[10:28:13 AM] Compiled Server in 21s
+[10:28:23 AM] Compiled Client in 31s
+ WAIT  Rendering static HTML...
+[2K[1GRendering page: /[2K[1GRendering page: /manual/[2K[1GRendering page: /manual/acmg-rule-engine.html[2K[1GRendering page: /manual/choosing-sample-variant.html[2K[1GRendering page: /manual/classification-page.html[2K[1GRendering page: /manual/classification-section.html[2K[1GRendering page: /manual/concepts.html[2K[1GRendering page: /manual/data-import-reanalyses.html[2K[1GRendering page: /manual/evidence-sections.html[2K[1GRendering page: /manual/filtered-variants.html[2K[1GRendering page: /manual/gene-panels.html[2K[1GRendering page: /manual/info-page.html[2K[1GRendering page: /manual/quick-classification.html[2K[1GRendering page: /manual/report-page.html[2K[1GRendering page: /manual/side-bar.html[2K[1GRendering page: /manual/top-bar.html[2K[1GRendering page: /manual/visual.html[2K[1GRendering page: /manual/warnings.html[2K[1GRendering page: /manual/workflows.html[2K[1GRendering page: /manual/worklog.html[2K[1GRendering page: /releasenotes/[2K[1GRendering page: /releasenotes/olderreleases.html[2K[1GRendering page: /technical/[2K[1GRendering page: /technical/acmg.html[2K[1GRendering page: /technical/annotation.html[2K[1GRendering page: /technical/application.html[2K[1GRendering page: /technical/configuration.html[2K[1GRendering page: /technical/datamodel.html[2K[1GRendering page: /technical/demo.html[2K[1GRendering page: /technical/development.html[2K[1GRendering page: /technical/filtering.html[2K[1GRendering page: /technical/genepanels.html[2K[1GRendering page: /technical/import.html[2K[1GRendering page: /technical/inout.html[2K[1GRendering page: /technical/logging.html[2K[1GRendering page: /technical/production-tasks.html[2K[1GRendering page: /technical/production.html[2K[1GRendering page: /technical/setup.html[2K[1GRendering page: /technical/sysinternals.html[2K[1GRendering page: /technical/testing.html[2K[1GRendering page: /technical/uicomponents.html[2K[1GRendering page: /technical/uioptions.html[2K[1GRendering page: /technical/users.html[2K[1GRendering page: /technical/workflow.html[2K[1GRendering page: /404.html[2K[1G
+ DONE  Success! Generated static files in ../src/webui/build/docs.
+
+Done in 41.35s.

@@ -53,3 +53,17 @@ cd demo
 docker-compose stop
 docker-compose rm -f -v
 ```
+
+## View the Ella Database
+
+If you need to view the ella database you can view it through the [adminer](https://www.adminer.org/) interface. This only works with the dev instance.
+
+To view the database login with the following.
+
+| Field  | Value (from docker-compose)|
+|---|---|
+| Engine | PostgreSQL |
+| Host | postgresql |
+| User | ella |
+| Password | password123 |
+| Database | ella |

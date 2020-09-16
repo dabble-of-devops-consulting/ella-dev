@@ -5,6 +5,15 @@ version: "3.8"
 # Open localhost:5000 to see the ella demo running
 
 services:
+
+  adminer:
+    image: adminer:4.7.7
+    restart: always
+    networks:
+      - app-tier
+    ports:
+      - 8080:8080
+
   ella:
     image: dabbleofdevops/ella:1.11.1
     environment:
