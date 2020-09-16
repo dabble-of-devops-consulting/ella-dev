@@ -31,7 +31,7 @@ docker-compose stop; docker-compose rm -f -v
 docker-compose up -d  --remove-orphans
 sleep 10
 #docker-compose exec ella bash -c "/ella/ops/test/reset_testdata.py --testset default"
-docker-compose exec ella bash -c "ella-cli database make-production"
+docker-compose exec ella bash -c "ella-cli database make-production -f"
 docker-compose exec ella \
     bash -c \
     "ella-cli deposit genepanel --genepanel_name HBOC --genepanel_version v01 \\
