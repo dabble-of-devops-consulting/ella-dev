@@ -40,6 +40,8 @@ This instance is meant to use the demo as a starting point, but import some exam
 ./run-dev.sh
 ```
 
+You will see a prompt to CONFIRM that you want to kill the previous database. You really shouldn't be persisting anything here, so go for it.
+
 Wait about a minute and you should see a message to open your browser.
 
 Then open your browser at [http:localhost:5000](http://localhost:5000) in order to view the instance. You can login with `testuser1/demo`. 

@@ -1,10 +1,21 @@
 version: "3.8"
 
 services:
+
+  adminer:
+    image: adminer:4.7.7
+    restart: always
+    networks:
+      - app-tier
+    ports:
+      - 8080:8080
+
   postgresql:
     image: bitnami/postgresql:12
     networks:
       - app-tier
+    ports:
+      - 5432:5432
     environment:
       DB_URL: "postgresql://ella:password123@postgresql/ella"
       POSTGRESQL_USERNAME: "ella"
@@ -30,8 +41,8 @@ services:
       ANALYSES_INCOMING: "/data/analyses/incoming"
       PRODUCTION: "false"
       # TODO Figure out how to get this working with the external postgresql
-      #      DB_URL: "postgresql://ella:password123@postgresql/ella"
-      DB_URL: "postgresql:///postgres"
+      DB_URL: "postgresql://ella:password123@postgresql/ella"
+#      DB_URL: "postgresql:///postgres"
     ports:
       - 5000:5000
     volumes:
