@@ -40,4 +40,6 @@ docker-compose exec ella \
     "
 docker-compose exec ella bash -c "ella-cli users add_groups /data/fixtures/usergroups.json"
 docker-compose exec ella bash -c "ella-cli users add_many /data/fixtures/users.json"
+docker-compose exec ella bash -c "ella-cli broadcast new 'hello world'"
+
 #docker-compose exec ella bash -c "ella-cli igv-download ${IGV_DATA}"
