@@ -5,3 +5,4 @@ demo/data
 dev/data
 .mypy_cache
 .idea
+**/logs
