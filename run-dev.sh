@@ -1,5 +1,6 @@
-
 #!/usr/bin/env bash
+
+set -x -e
 
 WORK_DIR=$(pwd)
 
@@ -30,7 +31,10 @@ cp -rf ../ella/src/vardb/testdata/clinicalGenePanels/HBOC_v01 data/fixtures/gene
 docker-compose stop; docker-compose rm -f -v
 docker-compose up -d  --remove-orphans
 sleep 10
-#docker-compose exec ella bash -c "/ella/ops/test/reset_testdata.py --testset default"
+docker-compose exec ella \
+    bash -c \
+    "while ! pg_isready --host postgresql --dbname=ella --username=ella; do sleep 5; done"
+
 docker-compose exec ella bash -c "ella-cli database make-production -f"
 docker-compose exec ella \
     bash -c \
