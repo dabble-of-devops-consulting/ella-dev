@@ -40,9 +40,7 @@ services:
       ANALYSES_PATH: "/data/analyses/imported"
       ANALYSES_INCOMING: "/data/analyses/incoming"
       PRODUCTION: "false"
-      # TODO Figure out how to get this working with the external postgresql
       DB_URL: "postgresql://ella:password123@postgresql/ella"
-#      DB_URL: "postgresql:///postgres"
     ports:
       - 5000:5000
     volumes:
